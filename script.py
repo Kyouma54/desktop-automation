@@ -1,6 +1,19 @@
+from datetime import datetime
 import pyautogui
 import time
 import subprocess
+import random
+
+#CRONJOB
+#0 8 * * 1-5 python3 /home/aka-hajime/Documents/Projetos/kyouma54/desktop-automate/script.py
+#0 12 * * 1-5 python3 /home/aka-hajime/Documents/Projetos/kyouma54/desktop-automate/script.py
+#0 13 * * 1-5 python3 /home/aka-hajime/Documents/Projetos/kyouma54/desktop-automate/script.py
+#0 19 * * 1-5 python3 /home/aka-hajime/Documents/Projetos/kyouma54/desktop-automate/script.py
+
+
+time.sleep(random.randint(1,10)*60)
+subprocess.Popen("spd-say --language='pt-BR' --rate='0' \"10 Segundos para bater ponto\"", shell=True)
+time.sleep(10)
 
 if 'active' == subprocess.check_output("gnome-screensaver-command -q", shell=True).decode('utf-8').split()[3]:
     pyautogui.moveTo(960, 540)
